@@ -78,7 +78,7 @@ function eatDot() {
 }
 
 function eatGhost(ghost) {
-  console.log("\nCan't eat Ghost!");
+  console.log('\n' + ghost.name + ' the ' + ghost.colour + ' ghost killed Pac-Man! x.x ');
   if (ghost.edible === false)
   lives -= 1;
 }
