@@ -78,6 +78,7 @@ function eatDot() {
 }
 
 function eatGhost(ghost) {
+  console.log("\nCan't eat Ghost!");
   if (ghost.edible === false)
   lives -= 1;
 }
