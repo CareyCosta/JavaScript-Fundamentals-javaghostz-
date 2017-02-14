@@ -60,9 +60,10 @@ function displayMenu() {
   console.log('\n\nSelect Option:\n');  // each \n creates a new line
   console.log('(d) Eat Dot');
   console.log('(q) Quit');
+  console.log('(p) Eat Power Pellet');
   // console.log('(p) Eat Power Pellet');
   for (var i=0;i < ghosts.length;i++){
-    console.log('('+ ghosts[i].menu_option +') Eat ' + ghosts[i].name );
+    console.log('('+ ghosts[i].menu_option +') Eat ' + ghosts[i].name + '(' + ghosts[i].edible + ')' );
   }
 }
 
@@ -80,6 +81,7 @@ function eatDot() {
 
 function eatGhost(ghost) {
     if (ghost.edible === false) {
+      ghost.edible = 'inedible'
       lives -= 1;
       console.log('\n' + ghost.name + ' the ' + ghost.colour + ' ghost killed Pac-Man! x.x ');
       gameOver();
@@ -88,6 +90,7 @@ function eatGhost(ghost) {
       console.log('\n' + ghost.name + ' the ' + ghost.character + ' has been eaten :( '+')');
       score += 200;
       ghost.edible = false;
+      ghost.edible = 'inedible'
     }
 }
 
@@ -102,6 +105,7 @@ function eatPowerPellet() {
     score += 50;
     for (var i=0;i < ghosts.length;i++){
       ghosts[i].edible = true
+      ghosts[i].edible = 'edible'
     };
     if (powerPellets === 0){
       console.log('\nNo Power Pellets left!');
